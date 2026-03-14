@@ -174,21 +174,27 @@
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
       width: 100%;
+    }
+
+    .hero-text {
+      flex: 1 1 0;
+      min-width: 0;
     }
 
     /* ─── Headshot ─── */
     .hero-headshot {
-      width: clamp(90px, 14vw, 160px);
-      height: clamp(90px, 14vw, 160px);
+      width: clamp(160px, 18vw, 210px);
+      height: clamp(160px, 18vw, 210px);
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 2rem;
-      border: 1px solid var(--subtle);
       flex-shrink: 0;
+      border: 1px solid var(--subtle);
+      align-self: flex-start;
+      margin-top: 0.5rem;
     }
     .hero-headshot img {
       width: 100%;
@@ -752,6 +758,16 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
+      .hero-inner {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+      .hero-headshot {
+        width: clamp(100px, 22vw, 140px);
+        height: clamp(100px, 22vw, 140px);
+      }
+
       .about-grid,
       .work-header,
       .expertise-header,
@@ -832,17 +848,12 @@
   <section id="hero">
     <div class="container">
       <div class="hero-inner">
-        <div>
-          <div class="hero-headshot">
-            <img src="assets/malini.jpg" alt="Malini Srikrishna" />
-          </div>
+        <div class="hero-text">
           <div class="hero-eyebrow">Operations &amp; Strategy</div>
           <h1 class="hero-headline">
             Making slow<br />change happen<br /><em>faster.</em>
           </h1>
-        </div>
-        <div>
-          <div class="hero-divider"></div>
+          <div class="hero-divider" style="margin-top: 2rem;"></div>
           <p class="hero-sub" style="margin-top: 1.5rem;">
             Malini Srikrishna builds the systems, teams, and structures that turn ambitious ideas into lasting outcomes — across education, health, finance, media, supply chain management, and technology.
           </p>
@@ -860,6 +871,9 @@
               <span class="hero-meta-value">Cavela</span>
             </div>
           </div>
+        </div>
+        <div class="hero-headshot">
+          <img src="assets/malini.jpg" alt="Malini Srikrishna" />
         </div>
       </div>
     </div>
